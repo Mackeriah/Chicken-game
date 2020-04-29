@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class enemyBehaviour : MonoBehaviour
 {
-    public float speed;
+    private float speed;
 
     // Start is called before the first frame update
     void Start()
     {
+        speed = Random.Range(3, 20);
         
     }
 
