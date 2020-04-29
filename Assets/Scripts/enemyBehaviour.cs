@@ -22,12 +22,25 @@ public class enemyBehaviour : MonoBehaviour
             // Ensure enemy physics will work
             Rigidbody ourRigidBody = GetComponent<Rigidbody>();
 
-
             // Calculate direction and distance to travel to the player (Note we're using the whole Static thing in References)
             Vector3 vectorToPlayer = References.thePlayer.transform.position - transform.position;
 
             // Use this as our velocity but normalize the value to 1 metre and then multiply by our speed
             ourRigidBody.velocity = vectorToPlayer.normalized * speed;
+
+
+
+            // float maxDistanceToMove = speed * Time.deltaTime;
+
+            // direction player trying to move (x,y,z but we don't care about y so zero)
+            // Vector3 inputVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            // Vector3 movementVector = inputVector * maxDistanceToMove;
+            // Vector3 newPosition = transform.position + movementVector;
+
+            transform.LookAt(vectorToPlayer);  // face the new position
+            // transform.position = newPosition;  // actually move there
+
+
         }
         
     }
