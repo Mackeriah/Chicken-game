@@ -9,7 +9,7 @@ public class enemyBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = Random.Range(3, 20);
+        speed = Random.Range(5, 10);
         
     }
 
