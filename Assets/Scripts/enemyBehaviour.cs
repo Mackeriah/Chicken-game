@@ -16,18 +16,29 @@ public class enemyBehaviour : MonoBehaviour
     void Update()
     {
 
+        Debug.Log("Player postiion is: " + References.thePlayer.transform.position);
+        Debug.Log("Enemy postiion is: " + transform.position);
+        
+
         if (References.thePlayer != null)  // if the player exists
         {
             // Ensure enemy physics will work
             Rigidbody ourRigidBody = GetComponent<Rigidbody>();
-
 
             // Calculate direction and distance to travel to the player (Note we're using the whole Static thing in References)
             Vector3 vectorToPlayer = References.thePlayer.transform.position - transform.position;
 
             // Use this as our velocity but normalize the value to 1 metre and then multiply by our speed
             ourRigidBody.velocity = vectorToPlayer.normalized * speed;
+
+            // calculate where player is
+            Vector3 playerPosition = new Vector3(References.thePlayer.transform.position.x, transform.position.y, References.thePlayer.transform.position.z);
+            
+            // look at them
+            transform.LookAt(playerPosition);
         }
+
+        
 
     }
 
