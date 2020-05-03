@@ -4,21 +4,18 @@ using UnityEngine;
 
 public class enemyBehaviour : MonoBehaviour
 {
-    public float speed;
+    private float speed;
 
     // Start is called before the first frame update
     void Start()
     {
+        speed =  Random.Range(5f, 12f);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        Debug.Log("Player postiion is: " + References.thePlayer.transform.position);
-        Debug.Log("Enemy postiion is: " + transform.position);
-        
 
         if (References.thePlayer != null)  // if the player exists
         {

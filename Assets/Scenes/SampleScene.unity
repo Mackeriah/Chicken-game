@@ -818,7 +818,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8235e6669a4bc4e8e6d427bb51849b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
 --- !u!1 &1190920422 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 112640, guid: c7ca0992ba00761469f731111e56b107,
@@ -848,12 +847,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1190920422}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f8235e6669a4bc4e8e6d427bb51849b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+--- !u!65 &1190920427
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190920422}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.155894, y: 5.8241897, z: 6.391593}
+  m_Center: {x: -0.01510659, y: 3.2481904, z: 0.060126923}
 --- !u!1001 &1354086006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1141,5 +1152,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 13
-  bulletPrefeb: {fileID: 0}
+  bulletPrefab: {fileID: 7286637064885884988, guid: fbfb44bdfa1a8694e851cc5cf5df3e2b,
+    type: 3}
   secondsBetweenShots: 0
+--- !u!65 &2057486396
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057486391}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.1912045, y: 16.215473, z: 16.531866}
+  m_Center: {x: 0.19213791, y: 7.6077356, z: 1.246923}
