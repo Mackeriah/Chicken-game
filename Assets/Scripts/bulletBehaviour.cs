@@ -20,9 +20,6 @@ public class bulletBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        Debug.Log(secondsUntilDestroyed);
-
         secondsUntilDestroyed -= Time.deltaTime;
 
         // a fun way to make the bullets enlarge and pop out of existance!
@@ -36,7 +33,8 @@ public class bulletBehaviour : MonoBehaviour
         {
             transform.localScale *= secondsUntilDestroyed;
         }
-*/
+        */
+
 
         if (secondsUntilDestroyed < 0)
         {
@@ -62,7 +60,7 @@ public class bulletBehaviour : MonoBehaviour
         }
     }
 
-        // the below are the old code and comments, which I'm keeping for now.  The new ones above are nicely concise, but only possible as I know understand more about this!
+        // the below are the old code and comments, which I'm keeping for now.  The new ones above are nicely concise, but only possible as I now understand more about this!
 
         /*
         private void OnCollisionEnter(Collision thisCollision)

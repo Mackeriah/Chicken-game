@@ -33,16 +33,8 @@ public class PlayerBehaviour : MonoBehaviour
         transform.position = newPosition;  // actually move there
 
 
-        // Ensure player physics will work
-        // Rigidbody ourRigidBody = GetComponent<Rigidbody>();
 
 
-        // Set our velocity
-        // (Velocity in a Physics sense is direction * speed)
-        // ourRigidBody.velocity = inputVector * speed;
-        
-        
-        
         // track time since last shot
         secondsSinceLastShot += Time.deltaTime;
 
@@ -56,26 +48,5 @@ public class PlayerBehaviour : MonoBehaviour
  
 
     }
-
-    // LATER MOVEMENT CODE FOR LOOKING AT MOUSE - BUT I REVERTED BACK TO EARLIER CODE FOR GIRLS GAME
-    /*// Find the new position we'll move to
-    Vector3 inputVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));  // direction player trying to move (x,y,z but we don't care about y so zero)
-
-    // Ensure player physics will work
-    Rigidbody ourRigidBody = GetComponent<Rigidbody>();
-
-    // Set our velocity
-    // (Velocity in a Physics sense is direction * speed)
-    ourRigidBody.velocity = inputVector* speed;
-
-    Ray rayFromCameraToCursor = Camera.main.ScreenPointToRay(Input.mousePosition);
-    Plane playerPlane = new Plane(Vector3.up, transform.position);
-    playerPlane.Raycast(rayFromCameraToCursor, out float distanceFromCamera);
-    Vector3 cursorPosition = rayFromCameraToCursor.GetPoint(distanceFromCamera);
-
-    // Face the position the player is moving controller
-    Vector3 lookAtPosition = cursorPosition;
-    transform.LookAt(lookAtPosition);*/
-
 
 }
