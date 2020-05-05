@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 3979501820664412491}
   - component: {fileID: 3979501820664412488}
   m_Layer: 0
-  m_Name: EnemyChick
+  m_Name: ChickPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
