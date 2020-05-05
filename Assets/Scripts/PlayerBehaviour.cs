@@ -7,7 +7,7 @@ public class PlayerBehaviour : MonoBehaviour
     // Never set the value of a public variable in code - a different value in the inspector will override the code without telling you
     // If you need to, set it in Start() instead
     public float speed;
-    public GameObject bulletPrefab;
+    public GameObject eggPrefab;
     public float secondsBetweenShots;   // assigned in Inspector
     private float secondsSinceLastShot;
 
@@ -23,18 +23,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
 
         float maxDistanceToMove = speed * Time.deltaTime;
-        
-        // direction player trying to move (x,y,z but we don't care about y so zero)
-        /*Vector3 inputVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-
-        Vector3 movementVector = inputVector * maxDistanceToMove;
-        Vector3 newPosition = transform.position + movementVector;
-
-        transform.LookAt(newPosition);  // face the new position
-        transform.position = newPosition;  // actually move there
-*/
-
-
+     
         // Find the new position we'll move to
         Vector3 inputVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
@@ -42,13 +31,13 @@ public class PlayerBehaviour : MonoBehaviour
         Rigidbody ourRigidBody = GetComponent<Rigidbody>();
 
         // Set our velocity
-        // (Velocity in a Physics sense is direction * speed)
         ourRigidBody.velocity = inputVector * speed;
 
         Vector3 movementVector = inputVector * maxDistanceToMove;
         Vector3 newPosition = transform.position + movementVector;
 
-        transform.LookAt(newPosition);  // face the new position
+        // face the new position
+        transform.LookAt(newPosition);
 
 
         // track time since last shot
@@ -58,32 +47,10 @@ public class PlayerBehaviour : MonoBehaviour
         if (secondsSinceLastShot >= secondsBetweenShots && Input.GetButton("Fire1")) 
         {
             // Instantiate is a function and the stuff after are arguments
-            Instantiate(bulletPrefab, transform.position + transform.forward, transform.rotation);
+            Instantiate(eggPrefab, transform.position + transform.forward, transform.rotation);
             secondsSinceLastShot = 0;
         }       
- 
 
     }
 
-
-    /*
-    // Find the new position we'll move to
-    Vector3 inputVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-
-    // Ensure player physics will work
-    Rigidbody ourRigidBody = GetComponent<Rigidbody>();
-
-    // Set our velocity
-    // (Velocity in a Physics sense is direction * speed)
-    ourRigidBody.velocity = inputVector* speed;
-
-    //Ray rayFromCameraToCursor = Camera.main.ScreenPointToRay(Input.mousePosition);
-    //Plane playerPlane = new Plane(Vector3.up, transform.position);
-    //playerPlane.Raycast(rayFromCameraToCursor, out float distanceFromCamera);
-    //Vector3 cursorPosition = rayFromCameraToCursor.GetPoint(distanceFromCamera);
-
-    // Face the position the player is moving controller
-    Vector3 lookAtPosition = cursorPosition;
-    transform.LookAt(lookAtPosition);
-    */
 }
