@@ -6,7 +6,8 @@ public class bulletBehaviour : MonoBehaviour
 {
     public float bulletSpeed;
     public float secondsUntilDestroyed;
-    public float damage;    
+    public float damage;
+    public GameObject enemyChickPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,8 @@ public class bulletBehaviour : MonoBehaviour
         if (secondsUntilDestroyed < 0)
         {
             Destroy(gameObject);
+            // spawn a chick...obviously
+            Instantiate(enemyChickPrefab, new Vector3(transform.position.x, 0.5f, transform.position.z), Quaternion.identity);
         }
 
     }

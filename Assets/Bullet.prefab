@@ -108,6 +108,8 @@ MonoBehaviour:
   bulletSpeed: 40
   secondsUntilDestroyed: 4
   damage: 1
+  enemyChickPrefab: {fileID: 3979501819879039651, guid: c432f87e23ae91443894e8f65c1cbc54,
+    type: 3}
 --- !u!54 &7845317940266576748
 Rigidbody:
   m_ObjectHideFlags: 0
