@@ -5,11 +5,14 @@ using UnityEngine;
 public class enemyBehaviour : MonoBehaviour
 {
     private float speed;
+    public GameObject pond;
+    private bool headingToPond = false;
 
     // Start is called before the first frame update
     void Start()
     {
         speed =  Random.Range(5f, 12f);
+        pond = GameObject.Find("pond");
 
     }
 
@@ -17,25 +20,52 @@ public class enemyBehaviour : MonoBehaviour
     void Update()
     {
 
+        if (References.thePlayer != null && headingToPond == false)  // if the player exists
+        {            
+            // Ensure enemy physics will work
+            Rigidbody ourRigidBody = GetComponent<Rigidbody>();
+
+            // Calculate direction and distance to travel to the pond
+            Vector3 vectorToPond = References.thePlayer.transform.position - transform.position;
+
+            // Use this as our velocity but normalize the value to 1 metre and then multiply by our speed
+            ourRigidBody.velocity = vectorToPond.normalized * speed;
+
+            // calculate where player is
+            Vector3 playerPosition = new Vector3(References.thePlayer.transform.position.x, transform.position.y, References.thePlayer.transform.position.z);
+
+            // look at them
+            transform.LookAt(playerPosition);
+        }
+
         if (References.thePlayer != null)  // if the player exists
         {
             // Ensure enemy physics will work
             Rigidbody ourRigidBody = GetComponent<Rigidbody>();
 
-            // Calculate direction and distance to travel to the player (Note we're using the whole Static thing in References)
-            Vector3 vectorToPlayer = References.thePlayer.transform.position - transform.position;
+            // Calculate direction and distance to travel to the pond
+            Vector3 vectorToPond = pond.transform.position - transform.position;
 
-            // Use this as our velocity but normalize the value to 1 metre and then multiply by our speed
-            ourRigidBody.velocity = vectorToPlayer.normalized * speed;
+            // calculate where the pond is
+            Vector3 pondPosition = new Vector3(pond.transform.position.x, transform.position.y, pond.transform.position.z);
 
-            // calculate where player is
-            Vector3 playerPosition = new Vector3(References.thePlayer.transform.position.x, transform.position.y, References.thePlayer.transform.position.z);
+            float distance = (transform.position - pondPosition).magnitude;
+
+            if (distance < 50f)
+            {
+                headingToPond = true;
+
+                // Use this as our velocity but normalize the value to 1 metre and then multiply by our speed
+                ourRigidBody.velocity = vectorToPond.normalized * speed;
+
+                // look at them
+                transform.LookAt(pondPosition);
+            }
             
-            // look at them
-            transform.LookAt(playerPosition);
         }
 
-        
+
+
 
     }
 
