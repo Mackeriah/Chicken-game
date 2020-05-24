@@ -10,7 +10,13 @@ public class PlayerBehaviour : MonoBehaviour
     public GameObject eggPrefab;
     public float secondsBetweenShots;   // assigned in Inspector
     private float secondsSinceLastShot;
-    
+
+    // New movement code
+    public Rigidbody ourRigidBody;
+    public float forwardForce = 2000f;
+    public float sidewaysForce = 2000f;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +28,6 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         float maxDistanceToMove = speed * Time.deltaTime;
      
         // Find the new position we'll move to
@@ -51,6 +56,30 @@ public class PlayerBehaviour : MonoBehaviour
             Instantiate(eggPrefab, transform.position + transform.forward, transform.rotation);
             secondsSinceLastShot = 0;
         }               
+
+    }
+
+    void FixedUpdate()
+    {
+        if (Input.GetKey("w"))
+        {
+            ourRigidBody.AddForce(0, 0, forwardForce * Time.deltaTime);
+        }
+
+        if (Input.GetKey("s"))
+        {
+            ourRigidBody.AddForce(0, 0, -forwardForce * Time.deltaTime);
+        }
+
+        if (Input.GetKey("d"))
+        {
+            ourRigidBody.AddForce(sidewaysForce * Time.deltaTime, 0, 0);
+        }
+
+        if (Input.GetKey("a"))
+        {
+            ourRigidBody.AddForce(-sidewaysForce * Time.deltaTime, 0, 0);
+        }
 
     }
 

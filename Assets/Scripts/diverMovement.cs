@@ -5,7 +5,6 @@ using UnityEngine;
 public class diverMovement : MonoBehaviour
 {
     public Rigidbody ourRigidBody;
-
     public float forwardForce = 2000f;
     public float sidewaysForce = 2000f;
 
