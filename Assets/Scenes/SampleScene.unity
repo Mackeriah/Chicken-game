@@ -2177,7 +2177,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!114 &902959534
 MonoBehaviour:
@@ -2186,18 +2186,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902959531}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 499422cfe73481a4ab214e332dcbe504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2000
+  speed: 13
   eggPrefab: {fileID: 1229464642518601159, guid: 59e6cc5e49491e6409a532b05992e43a,
     type: 3}
-  secondsBetweenShots: 0
-  ourRigidBody: {fileID: 0}
-  forwardForce: 2000
-  sidewaysForce: 2000
+  secondsBetweenShots: 0.1
 --- !u!4 &902959535
 Transform:
   m_ObjectHideFlags: 0
@@ -2220,7 +2217,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902959531}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c7dab81364493347aa7cec72e861960, type: 3}
   m_Name: 
@@ -2543,7 +2540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca0bd661b2bc8ca4290e120a56c99ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 888079092}
+  target: {fileID: 902959535}
   smoothSpeed: 0.125
   offset: {x: 0, y: 15, z: -20}
 --- !u!1001 &1023195190
