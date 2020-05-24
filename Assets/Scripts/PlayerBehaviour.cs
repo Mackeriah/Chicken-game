@@ -50,7 +50,7 @@ public class PlayerBehaviour : MonoBehaviour
             // Instantiate is a function and the stuff after are arguments
             Instantiate(eggPrefab, transform.position + transform.forward, transform.rotation);
             secondsSinceLastShot = 0;
-        }       
+        }               
 
     }
 
