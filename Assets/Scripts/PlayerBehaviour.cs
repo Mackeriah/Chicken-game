@@ -21,25 +21,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        float maxDistanceToMove = speed * Time.deltaTime;
-     
-        // Find the new position we'll move to
-        Vector3 inputVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-
-        // Ensure player physics will work
-        Rigidbody ourRigidBody = GetComponent<Rigidbody>();
-
-        // Set our velocity
-        ourRigidBody.velocity = inputVector * speed;
-
-        Vector3 movementVector = inputVector * maxDistanceToMove;
-        Vector3 newPosition = transform.position + movementVector;
-
-        // face the new position
-        transform.LookAt(newPosition);
-
-
+    {      
         // track time since last shot
         secondsSinceLastShot += Time.deltaTime;
 
@@ -51,6 +33,26 @@ public class PlayerBehaviour : MonoBehaviour
             secondsSinceLastShot = 0;
         }               
 
+    }
+
+    private void FixedUpdate()
+    {
+        float maxDistanceToMove = speed * Time.deltaTime;
+
+        // Find the new position we'll move to
+        Vector3 inputVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
+        // Ensure player physics will work
+        Rigidbody ourRigidBody = GetComponent<Rigidbody>();
+
+        // Set our velocity
+        ourRigidBody.AddForce(inputVector * speed);
+
+        Vector3 movementVector = inputVector * maxDistanceToMove;
+        Vector3 newPosition = transform.position + movementVector;
+
+        // face the new position
+        transform.LookAt(newPosition);
     }
 
 

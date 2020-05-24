@@ -2034,12 +2034,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 888079086}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c7dab81364493347aa7cec72e861960, type: 3}
+  m_Script: {fileID: 11500000, guid: 499422cfe73481a4ab214e332dcbe504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ourRigidBody: {fileID: 888079088}
-  forwardForce: 3000
-  sidewaysForce: 3000
+  speed: 100
+  eggPrefab: {fileID: 0}
+  secondsBetweenShots: 0
 --- !u!54 &888079088
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2142,7 +2142,6 @@ GameObject:
   - component: {fileID: 902959534}
   - component: {fileID: 902959533}
   - component: {fileID: 902959532}
-  - component: {fileID: 902959536}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2171,13 +2170,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902959531}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 2.5
   m_Drag: 4
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &902959534
 MonoBehaviour:
@@ -2191,7 +2190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 499422cfe73481a4ab214e332dcbe504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 13
+  speed: 100
   eggPrefab: {fileID: 1229464642518601159, guid: 59e6cc5e49491e6409a532b05992e43a,
     type: 3}
   secondsBetweenShots: 0.1
@@ -2203,28 +2202,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902959531}
   m_LocalRotation: {x: -0, y: -0.013733886, z: -0, w: -0.9999057}
-  m_LocalPosition: {x: -92.18, y: 1.83, z: -12.74}
+  m_LocalPosition: {x: -92.18, y: 1.89, z: -12.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2057486395}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 361.574, z: 0}
---- !u!114 &902959536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 902959531}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c7dab81364493347aa7cec72e861960, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ourRigidBody: {fileID: 902959533}
-  forwardForce: 3000
-  sidewaysForce: 3000
 --- !u!1 &938842662 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 5b10c1fadcedc4347b929c94cb50d5d3,
@@ -3290,7 +3274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 476096, guid: 9bf484c5ec3d3bf43b2034c829f1abbe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.33
+      value: -1.306
       objectReference: {fileID: 0}
     - target: {fileID: 476096, guid: 9bf484c5ec3d3bf43b2034c829f1abbe, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5835,6 +5819,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9999964
+      objectReference: {fileID: 0}
+    - target: {fileID: 3979501820664412487, guid: c432f87e23ae91443894e8f65c1cbc54,
+        type: 3}
+      propertyPath: m_Mass
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 3979501820664412488, guid: c432f87e23ae91443894e8f65c1cbc54,
         type: 3}
