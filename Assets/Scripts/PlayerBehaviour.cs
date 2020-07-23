@@ -10,8 +10,9 @@ public class PlayerBehaviour : MonoBehaviour
     public GameObject eggPrefab;
     public float secondsBetweenShots;   // assigned in Inspector
     private float secondsSinceLastShot;
+    public float numberOfSandwiches;
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +54,28 @@ public class PlayerBehaviour : MonoBehaviour
 
         // face the new position
         transform.LookAt(newPosition);
+    }
+
+    /*private void OnCollisionEnter(Collision thisCollision)
+    {
+        GameObject theirGameObject = thisCollision.gameObject;
+
+        if (theirGameObject.GetComponent<Collectible>() != null)
+        {
+            numberOfSandwiches = +1;
+            Destroy(theirGameObject);
+        }
+    }
+*/
+    private void OnTriggerEnter(Collider other)
+    {
+        GameObject theirGameObject = other.gameObject;
+
+        if (theirGameObject.GetComponent<Collectible>() != null)
+        {
+            numberOfSandwiches += 1;
+            Destroy(theirGameObject);
+        }
     }
 
 
